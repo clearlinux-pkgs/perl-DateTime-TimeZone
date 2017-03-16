@@ -1,3 +1,57 @@
+2.10    2017-03-01
+
+- This release is based on version 2017a of the Olson database. This release
+  includes contemporary changes for Mongolia and Chile.
+
+
+2.09    2016-11-24
+
+- This release is based on version 2016j of the Olson database. This release
+  includes contemporary changes for Russia (Europe/Saratov).
+
+
+2.08    2016-11-12
+
+- Switched from RT to the GitHub issue tracker.
+
+
+2.07    2016-11-02
+
+- This release is based on version 2016i of the Olson database. This release
+  includes contemporary changes for Tonga and Antarctica/Casey. There is also
+  a new zone for Northern Cyprus, Asia/Famagusta, which differs from other
+  parts of Cyprus.
+
+
+2.06    2016-10-20
+
+- This release is based on version 2016h of the Olson database. This release
+  includes contemporary changes for Palestine.
+
+
+2.05    2016-09-28
+
+- This release is based on version 2016g of the Olson database. This release
+  includes contemporary changes for Turkey.
+
+
+2.04    2016-09-26
+
+- Automatically add the latest version of DateTime::Time::Local::Win32 as a
+  prereqs on Windows system automatically when building the release.
+
+
+2.03    2016-09-17
+
+- Bump minimum required Perl to 5.8.4 from 5.8.1. This matches DateTime.pm
+  itself.
+
+
+2.02    2016-09-16
+
+- Replaced Params::Validate with Params::ValidationCompiler.
+
+
 2.01    2016-07-17
 
 - This release is based on version 2016f of the Olson database. This release
@@ -682,7 +736,7 @@
   Asia/Novokuznetsk.
 
 
-1.02    (I forgot to actually release this one)
+1.02    Not Released  (Oops)
 
 - This release is based on version 2009p of the Olson database. The only
   changes in this release are for Argentina. This release should produce the
@@ -771,7 +825,7 @@
   change _from_ DST, but that's governments for you).
 
 - Made sure to local-ize $@ before any eval, to prevent errors
-  accidentally propogating out to your code.
+  accidentally propagating out to your code.
 
 
 0.91    2009-05-26
@@ -1457,7 +1511,7 @@
 
 0.2505   2003-10-27
 
-- The change in 0.2504 to accomodate SuSE's /etc/sysconfig/clock file
+- The change in 0.2504 to accommodate SuSE's /etc/sysconfig/clock file
   broke this feature on RedHat.  Sigh.  Reported by John Siracusa.
 
 
@@ -1620,7 +1674,7 @@
   this is America/Belem.
 
 - Fixed a bug in the generated time zone code that caused it to do
-  more work than it should when calculting offsets for future
+  more work than it should when calculating offsets for future
   datetimes.
 
 

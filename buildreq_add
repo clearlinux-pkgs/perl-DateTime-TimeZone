@@ -5,3 +5,4 @@ perl(Module::Implementation)
 perl(Test::Taint)
 perl(Test::Output)
 perl(Test::More)
+perl-DateTime
