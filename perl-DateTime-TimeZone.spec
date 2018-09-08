@@ -4,25 +4,22 @@
 #
 Name     : perl-DateTime-TimeZone
 Version  : 2.19
-Release  : 39
-URL      : http://search.cpan.org/CPAN/authors/id/D/DR/DROLSKY/DateTime-TimeZone-2.19.tar.gz
-Source0  : http://search.cpan.org/CPAN/authors/id/D/DR/DROLSKY/DateTime-TimeZone-2.19.tar.gz
+Release  : 40
+URL      : https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/DateTime-TimeZone-2.19.tar.gz
+Source0  : https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/DateTime-TimeZone-2.19.tar.gz
 Summary  : 'Time zone object base class and factory'
 Group    : Development/Tools
 License  : Artistic-1.0 Artistic-1.0-Perl GPL-1.0
-Requires: perl-DateTime-TimeZone-man
+Requires: perl-DateTime-TimeZone-license
+BuildRequires : buildreq-cpan
 BuildRequires : perl(B::Hooks::EndOfScope)
 BuildRequires : perl(Class::Data::Inheritable)
 BuildRequires : perl(Class::Singleton)
-BuildRequires : perl(Devel::StackTrace)
-BuildRequires : perl(Eval::Closure)
 BuildRequires : perl(Exception::Class)
-BuildRequires : perl(MRO::Compat)
 BuildRequires : perl(Module::Implementation)
 BuildRequires : perl(Module::Runtime)
 BuildRequires : perl(Package::Stash)
 BuildRequires : perl(Params::ValidationCompiler)
-BuildRequires : perl(Role::Tiny::With)
 BuildRequires : perl(Specio::Library::Builtins)
 BuildRequires : perl(Specio::Library::String)
 BuildRequires : perl(Sub::Exporter::Progressive)
@@ -44,12 +41,21 @@ DateTime::TimeZone - Time zone object base class and factory
 # VERSION
 version 2.19
 
-%package man
-Summary: man components for the perl-DateTime-TimeZone package.
+%package dev
+Summary: dev components for the perl-DateTime-TimeZone package.
+Group: Development
+Provides: perl-DateTime-TimeZone-devel
+
+%description dev
+dev components for the perl-DateTime-TimeZone package.
+
+
+%package license
+Summary: license components for the perl-DateTime-TimeZone package.
 Group: Default
 
-%description man
-man components for the perl-DateTime-TimeZone package.
+%description license
+license components for the perl-DateTime-TimeZone package.
 
 
 %prep
@@ -77,6 +83,8 @@ make TEST_VERBOSE=1 test || :
 
 %install
 rm -rf %{buildroot}
+mkdir -p %{buildroot}/usr/share/doc/perl-DateTime-TimeZone
+cp LICENSE %{buildroot}/usr/share/doc/perl-DateTime-TimeZone/LICENSE
 if test -f Makefile.PL; then
 make pure_install PERL_INSTALL_ROOT=%{buildroot}
 else
@@ -462,7 +470,7 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 /usr/lib/perl5/site_perl/5.26.1/DateTime/TimeZone/UTC.pm
 /usr/lib/perl5/site_perl/5.26.1/DateTime/TimeZone/WET.pm
 
-%files man
+%files dev
 %defattr(-,root,root,-)
 /usr/share/man/man3/DateTime::TimeZone.3
 /usr/share/man/man3/DateTime::TimeZone::Catalog.3
@@ -473,3 +481,7 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 /usr/share/man/man3/DateTime::TimeZone::OffsetOnly.3
 /usr/share/man/man3/DateTime::TimeZone::OlsonDB.3
 /usr/share/man/man3/DateTime::TimeZone::UTC.3
+
+%files license
+%defattr(-,root,root,-)
+/usr/share/doc/perl-DateTime-TimeZone/LICENSE
