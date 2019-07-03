@@ -4,13 +4,14 @@
 #
 Name     : perl-DateTime-TimeZone
 Version  : 2.36
-Release  : 58
+Release  : 59
 URL      : https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/DateTime-TimeZone-2.36.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/DateTime-TimeZone-2.36.tar.gz
-Summary  : Time zone object base class and factory
+Summary  : 'Time zone object base class and factory'
 Group    : Development/Tools
 License  : Artistic-1.0 Artistic-1.0-Perl GPL-1.0
 Requires: perl-DateTime-TimeZone-license = %{version}-%{release}
+Requires: perl(namespace::autoclean)
 BuildRequires : buildreq-cpan
 BuildRequires : perl(B::Hooks::EndOfScope)
 BuildRequires : perl(Class::Data::Inheritable)
@@ -49,7 +50,6 @@ version 2.36
 Summary: dev components for the perl-DateTime-TimeZone package.
 Group: Development
 Provides: perl-DateTime-TimeZone-devel = %{version}-%{release}
-Requires: perl-DateTime-TimeZone = %{version}-%{release}
 Requires: perl-DateTime-TimeZone = %{version}-%{release}
 
 %description dev
