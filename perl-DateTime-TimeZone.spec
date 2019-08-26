@@ -4,7 +4,7 @@
 #
 Name     : perl-DateTime-TimeZone
 Version  : 2.36
-Release  : 60
+Release  : 61
 URL      : https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/DateTime-TimeZone-2.36.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/DateTime-TimeZone-2.36.tar.gz
 Summary  : 'Time zone object base class and factory'
@@ -12,6 +12,11 @@ Group    : Development/Tools
 License  : Artistic-1.0 Artistic-1.0-Perl GPL-1.0
 Requires: perl-DateTime-TimeZone-license = %{version}-%{release}
 Requires: perl(B::Hooks::EndOfScope)
+Requires: perl(Class::Singleton)
+Requires: perl(Module::Runtime)
+Requires: perl(Params::ValidationCompiler)
+Requires: perl(Specio)
+Requires: perl(Try::Tiny)
 Requires: perl(namespace::autoclean)
 BuildRequires : buildreq-cpan
 BuildRequires : perl(B::Hooks::EndOfScope)

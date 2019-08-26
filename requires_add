@@ -2,3 +2,8 @@
 # picked up automatically. One name per line, no whitespace.
 perl(namespace::autoclean)
 perl(B::Hooks::EndOfScope)
+perl(Class::Singleton)
+perl(Module::Runtime)
+perl(Params::ValidationCompiler)
+perl(Specio)
+perl(Try::Tiny)
