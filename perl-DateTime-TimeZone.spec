@@ -4,10 +4,10 @@
 # Using build pattern: cpan
 #
 Name     : perl-DateTime-TimeZone
-Version  : 2.58
-Release  : 93
-URL      : https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/DateTime-TimeZone-2.58.tar.gz
-Source0  : https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/DateTime-TimeZone-2.58.tar.gz
+Version  : 2.59
+Release  : 94
+URL      : https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/DateTime-TimeZone-2.59.tar.gz
+Source0  : https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/DateTime-TimeZone-2.59.tar.gz
 Summary  : 'Time zone object base class and factory'
 Group    : Development/Tools
 License  : Artistic-1.0 Artistic-1.0-Perl GPL-1.0
@@ -36,7 +36,7 @@ BuildRequires : perl-DateTime
 # NAME
 DateTime::TimeZone - Time zone object base class and factory
 # VERSION
-version 2.58
+version 2.59
 
 %package dev
 Summary: dev components for the perl-DateTime-TimeZone package.
@@ -66,7 +66,8 @@ perl components for the perl-DateTime-TimeZone package.
 
 
 %prep
-%setup -q -n DateTime-TimeZone-2.58
+%setup -q -n DateTime-TimeZone-2.59
+cd %{_builddir}/DateTime-TimeZone-2.59
 
 %build
 export http_proxy=http://127.0.0.1:9/
