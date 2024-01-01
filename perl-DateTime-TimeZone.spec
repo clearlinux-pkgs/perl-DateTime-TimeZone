@@ -6,14 +6,13 @@
 # autospec commit: c1050fe
 #
 Name     : perl-DateTime-TimeZone
-Version  : 2.60
-Release  : 99
-URL      : https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/DateTime-TimeZone-2.60.tar.gz
-Source0  : https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/DateTime-TimeZone-2.60.tar.gz
+Version  : 2.61
+Release  : 100
+URL      : https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/DateTime-TimeZone-2.61.tar.gz
+Source0  : https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/DateTime-TimeZone-2.61.tar.gz
 Summary  : 'Time zone object base class and factory'
 Group    : Development/Tools
-License  : Artistic-1.0 Artistic-1.0-Perl GPL-1.0
-Requires: perl-DateTime-TimeZone-license = %{version}-%{release}
+License  : Artistic-1.0-Perl
 Requires: perl-DateTime-TimeZone-perl = %{version}-%{release}
 Requires: perl(B::Hooks::EndOfScope)
 Requires: perl(Class::Singleton)
@@ -38,7 +37,7 @@ BuildRequires : perl-DateTime
 # NAME
 DateTime::TimeZone - Time zone object base class and factory
 # VERSION
-version 2.60
+version 2.61
 
 %package dev
 Summary: dev components for the perl-DateTime-TimeZone package.
@@ -48,14 +47,6 @@ Requires: perl-DateTime-TimeZone = %{version}-%{release}
 
 %description dev
 dev components for the perl-DateTime-TimeZone package.
-
-
-%package license
-Summary: license components for the perl-DateTime-TimeZone package.
-Group: Default
-
-%description license
-license components for the perl-DateTime-TimeZone package.
 
 
 %package perl
@@ -68,8 +59,11 @@ perl components for the perl-DateTime-TimeZone package.
 
 
 %prep
-%setup -q -n DateTime-TimeZone-2.60
-cd %{_builddir}/DateTime-TimeZone-2.60
+%setup -q -n DateTime-TimeZone-2.61
+cd %{_builddir}/DateTime-TimeZone-2.61
+pushd ..
+cp -a DateTime-TimeZone-2.61 buildavx2
+popd
 
 %build
 export http_proxy=http://127.0.0.1:9/
@@ -93,8 +87,6 @@ make TEST_VERBOSE=1 test || :
 
 %install
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr/share/package-licenses/perl-DateTime-TimeZone
-cp %{_builddir}/DateTime-TimeZone-%{version}/LICENSE %{buildroot}/usr/share/package-licenses/perl-DateTime-TimeZone/36886d89a91598e418fbfc5f0bf288f9583ccdb3 || :
 if test -f Makefile.PL; then
 make pure_install PERL_INSTALL_ROOT=%{buildroot} INSTALLDIRS=vendor
 else
@@ -104,6 +96,7 @@ find %{buildroot} -type f -name .packlist -exec rm -f {} ';'
 find %{buildroot} -depth -type d -exec rmdir {} 2>/dev/null ';'
 find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 %{_fixperms} %{buildroot}/*
+/usr/bin/elf-move.py avx2 %{buildroot}-v3 %{buildroot} %{buildroot}/usr/share/clear/filemap/filemap-%{name}
 
 %files
 %defattr(-,root,root,-)
@@ -119,10 +112,6 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 /usr/share/man/man3/DateTime::TimeZone::OffsetOnly.3
 /usr/share/man/man3/DateTime::TimeZone::OlsonDB.3
 /usr/share/man/man3/DateTime::TimeZone::UTC.3
-
-%files license
-%defattr(0644,root,root,0755)
-/usr/share/package-licenses/perl-DateTime-TimeZone/36886d89a91598e418fbfc5f0bf288f9583ccdb3
 
 %files perl
 %defattr(-,root,root,-)
