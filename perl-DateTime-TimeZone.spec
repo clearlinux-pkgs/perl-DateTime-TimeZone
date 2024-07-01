@@ -7,7 +7,7 @@
 #
 Name     : perl-DateTime-TimeZone
 Version  : 2.62
-Release  : 101
+Release  : 102
 URL      : https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/DateTime-TimeZone-2.62.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/DateTime-TimeZone-2.62.tar.gz
 Summary  : 'Time zone object base class and factory'
